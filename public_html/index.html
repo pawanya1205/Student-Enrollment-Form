@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+    <head>
+        <style>
+            .buttonBlue {
+                background-color: rgb(0, 0, 255);
+                border: none;
+                color: white;
+                padding: 8px 18px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                font-weight: bold;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+
+            .buttonBlue:hover {
+                background-color: rgba(38, 0, 255, 0.623)
+            }
+
+            
+
+                /* might create issues the brackets */
+                .buttonBlue {
+                    background-color: #008CBA;
+                }
+
+                /* Blue */
+                .buttonRed {
+                    background-color: #f44336;
+                }
+
+                /* Red */
+                .buttonGray {
+                    background-color: #e7e7e7;
+                    color: black;
+                }
+
+                /* Gray */
+                .buttonBlack {
+                    background-color: #555555;
+                }
+
+            
+
+
+
+
+            #container {
+                width: 100%;
+            }
+            .container{
+                position: relative;
+                width: 100%;
+                min-height: 100vh;
+
+                overflow: hidden;
+            }
+
+            form{
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                padding: 0 5rem;
+                overflow: hidden;
+                grid-column: 1/2;
+                grid-row: 1/2 ;
+                transition: 0.3s 0.7s ease-in-out;
+            }
+            
+            html {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+
+            body {
+
+                background: #092756;
+                background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -moz-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -moz-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+                background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -webkit-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -webkit-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+                background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -o-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -o-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+                background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -ms-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -ms-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+                background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), linear-gradient(to bottom, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), linear-gradient(135deg, #670d10 0%, #092756 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3E1D6D', endColorstr='#092756', GradientType=1);
+            }
+
+
+
+        </style>
+
+        <title>Student Enrollment Form</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+
+        <script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    </head>
+    <body>
+        <div class="container" style="color:red">
+            <div class="page-header text-center">
+                <h2>Enrollment form</h2>
+            </div>
+            <form id="enrForm" method="get">
+                <div class="form-group">
+                    <label for="stRoll">ROLL NO:</label> <label id="stRollMsg">
+                    </label>
+                    <input type="text" class="form-control" name="stROll" id="stRoll" onchange="getEmp()">
+
+                </div>
+                <div class="form-group">
+                    <label for="sName"> Name:</label>
+                    <input type="text" class="form-control" id="sName">
+
+                </div>
+                <div class="form-group">
+                    <label for="sClass">Class:</label>
+                    <input type="text" class="form-control" id="sClass">
+
+                </div>
+                <div class="form-group">
+                    <label for="dob"> DOB:</label>
+                    <input type="date" class="form-control" id="dob">
+
+                </div>
+                <div class="form-group">
+                    <label for="sAdd"> Address:</label>
+                    <input type="text" class="form-control" id="sAdd">
+
+                </div>
+                <div class="form-group">
+                    <label for="enrDate"> Enrollment Date:</label>
+                    <input type="date" class="form-control" id="enrDate">
+
+                </div>
+                <div class="form-group text-center">
+                    <button type="button" class="btn btn-lg btn-primary" id="save" onclick="saveData()" disabled>save</button>
+                    <button type="button" class="btn btn-lg btn-primary" id="change" onclick="changeData()" disabled>change</button>
+                    <button type="button" class="btn btn-lg btn-primary" id="reset" onclick="resetForm()" disabled>reset</button>
+                </div>
+                
+            </form>
+        </div>
+        
+        <script type="text/javascript" src="http://login2explore.com/jpdb/resources/js/0.0.3/jpdb-commons.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+
+    </body>
+</html>
